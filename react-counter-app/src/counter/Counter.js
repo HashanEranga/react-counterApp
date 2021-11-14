@@ -1,4 +1,4 @@
-import react ,{ useState } from 'react'
+import { useState } from 'react'
 import './counter.css'
 
 function Counter() {
@@ -15,6 +15,29 @@ function Counter() {
 		setValue(0)
 	}
 
+
+	const compIncreaseVal = () =>{
+		setTimeout(()=>{
+			setValue((preVal)=>{
+				return preVal+1
+			})
+		},2000)
+	}
+	const compDecreseVal = () =>{
+		setTimeout(()=>{
+			setValue((preVal)=>{
+				return preVal-1
+			})
+		},2000)
+	}
+	const compResetVal = () =>{
+		setTimeout(()=>{
+			setValue((preVal)=>{
+				return 0
+			})
+		},2000)
+	}
+
 	return (
 		<>
 			<section>
@@ -29,6 +52,20 @@ function Counter() {
 				</button>
 				<button type='button' onClick={resetVal}>
 					Reset
+				</button>
+			</section>
+			<section>
+				<h2>Complex Counter</h2>
+				<h1>{value}</h1>
+
+				<button type='button' onClick={compIncreaseVal}>
+					CompIncrease
+				</button>
+				<button type='button' onClick={compDecreseVal}>
+					CompDecrease
+				</button>
+				<button type='button' onClick={compResetVal}>
+					CompReset
 				</button>
 			</section>
 		</>
